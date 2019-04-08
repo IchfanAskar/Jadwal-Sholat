@@ -1,6 +1,8 @@
 package com.example.hijiriakalender;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,10 +20,16 @@ import static com.example.hijiriakalender.model.HijriResponse.DataBean.*;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView hijiriRV;
+    private RecycleViewAdapter hijiriAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        hijiriRV = findViewById(R.id.recycle_view);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        hijiriRV.setLayoutManager(mLayoutManager);
 
         HijriService.getAPI()
                 .getPrayerDateHijri("Makassar", "ID")
@@ -30,15 +38,19 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<HijriResponse> call, Response<HijriResponse> response) {
                         if (response.isSuccessful()){
                             List<DataBean> dataBeans = response.body().getData();
+                            hijiriAdapter = new RecycleViewAdapter(dataBeans);
+                            hijiriRV.setAdapter(hijiriAdapter);
+                            hijiriRV.setHasFixedSize(true);
 
-                            for (DataBean dataBean: dataBeans){
-                                TimingsBean timingsBean = dataBean.getTimings();
-                                DateBean dateBean = dataBean.getDate();
-                                MetaBean metaBean = dataBean.getMeta();
-
-                                Log.d("jadwal subuh" , timingsBean.getFajr());
-
-                            }
+//
+//                            for (DataBean dataBean: dataBeans){
+//                                TimingsBean timingsBean = dataBean.getTimings();
+//                                DateBean dateBean = dataBean.getDate();
+//                                MetaBean metaBean = dataBean.getMeta();
+//
+//                                Log.d("jadwal subuh" , timingsBean.getFajr());
+//
+//                            }
                         }
                     }
 
@@ -48,4 +60,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }
