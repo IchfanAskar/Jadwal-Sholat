@@ -34,6 +34,10 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         holder.tvTanggal.setText(dataBeanList.get(i).getDate().getReadable());
         holder.tvSubuh.setText(dataBeanList.get(i).getTimings().getFajr());
+        holder.tvDuhur.setText(dataBeanList.get(i).getTimings().getDhuhr());
+        holder.tvAsar.setText(dataBeanList.get(i).getTimings().getAsr());
+        holder.tvMagrib.setText(dataBeanList.get(i).getTimings().getMaghrib());
+        holder.tvIsa.setText(dataBeanList.get(i).getTimings().getIsha());
     }
 
     @Override
@@ -42,12 +46,16 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvTanggal, tvSubuh;
+        private TextView tvTanggal, tvSubuh, tvAsar, tvDuhur, tvMagrib, tvIsa;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTanggal = itemView.findViewById(R.id.text_tanggal);
             tvSubuh = itemView.findViewById(R.id.text_subuh);
+            tvDuhur = itemView.findViewById(R.id.text_duhur);
+            tvAsar = itemView.findViewById(R.id.text_asar);
+            tvMagrib = itemView.findViewById(R.id.text_magrib);
+            tvIsa = itemView.findViewById(R.id.text_isya);
         }
     }
 }
