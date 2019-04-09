@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<HijriResponse> call, Response<HijriResponse> response) {
                         if (response.isSuccessful()){
                             List<DataBean> dataBeans = response.body().getData();
-                            hijiriAdapter = new RecycleViewAdapter(dataBeans);
+                            hijiriAdapter = new RecycleViewAdapter(dataBeans,hijiriRV);
                             hijiriRV.setAdapter(hijiriAdapter);
                             hijiriRV.setHasFixedSize(true);
 

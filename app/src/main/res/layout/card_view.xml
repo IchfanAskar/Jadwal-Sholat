@@ -18,106 +18,133 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_tanggal"
+            <RelativeLayout
+                android:id="@+id/recycleHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="tanggal" />
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/kt_subuh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Subuh     : "
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="tanggal" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_subuh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18dp"
-                app:layout_constraintLeft_toRightOf="@+id/kt_subuh"
-                app:layout_constraintTop_toBottomOf="@+id/text_tanggal"
-                tools:text="waktu" />
+            </RelativeLayout>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/kt_duhur"
-                android:layout_width="wrap_content"
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expanded_menu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Dzuhur    : "
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kt_subuh" />
+                app:el_duration="1000"
+                app:el_expanded="true"
+                app:el_parallax="0.5"
+                app:layout_constraintTop_toBottomOf="@id/recycleHeader">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_duhur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18dp"
-                app:layout_constraintLeft_toRightOf="@id/kt_duhur"
-                app:layout_constraintTop_toBottomOf="@id/text_subuh"
-                tools:text="waktu" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/kt_asar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Ashar      : "
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kt_duhur" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/kt_subuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Subuh     : "
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_asar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18dp"
-                app:layout_constraintLeft_toRightOf="@+id/kt_asar"
-                app:layout_constraintTop_toBottomOf="@+id/text_duhur"
-                tools:text="waktu" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_subuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18dp"
+                    app:layout_constraintLeft_toRightOf="@+id/kt_subuh"
+                    tools:text="waktu"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/kt_magrib"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Magrib    : "
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_asar" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_magrib"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18dp"
-                app:layout_constraintLeft_toRightOf="@+id/kt_magrib"
-                app:layout_constraintTop_toBottomOf="@+id/text_asar"
-                tools:text="waktu" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/kt_duhur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Dzuhur    : "
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/kt_subuh" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/kt_isya"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:text="Isha         : "
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_magrib" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_duhur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18dp"
+                    app:layout_constraintLeft_toRightOf="@id/kt_duhur"
+                    app:layout_constraintTop_toBottomOf="@id/text_subuh"
+                    tools:text="waktu" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/text_isya"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18dp"
-                app:layout_constraintLeft_toRightOf="@+id/kt_isya"
-                app:layout_constraintTop_toBottomOf="@+id/text_magrib"
-                tools:text="waktu" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/kt_asar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Ashar      : "
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/kt_duhur" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_asar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18dp"
+                    app:layout_constraintLeft_toRightOf="@+id/kt_asar"
+                    app:layout_constraintTop_toBottomOf="@+id/text_duhur"
+                    tools:text="waktu" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/kt_magrib"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Magrib    : "
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_asar" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_magrib"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18dp"
+                    app:layout_constraintLeft_toRightOf="@+id/kt_magrib"
+                    app:layout_constraintTop_toBottomOf="@+id/text_asar"
+                    tools:text="waktu" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/kt_isya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="Isha         : "
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_magrib" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text_isya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18dp"
+                    app:layout_constraintLeft_toRightOf="@+id/kt_isya"
+                    app:layout_constraintTop_toBottomOf="@+id/text_magrib"
+                    tools:text="waktu" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
